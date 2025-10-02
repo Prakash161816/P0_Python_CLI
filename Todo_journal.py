@@ -38,7 +38,7 @@ def save_all(todos):
     """Rewrite the file with the list of todos."""
     with open(LOG_FILE, "w", encoding="utf-8") as file:
         for todo in todos:
-            file.write(json.dumps(todo.to_dict(), ensure_ascii=False) + "\n")
+            file.write(json.dumps(todo.to_dict()) + "\n")
 
 def add_todo():
     print("\nAdd a new task to your list!")
@@ -65,7 +65,7 @@ def add_todo():
     new_todo = Todo(id=todo_id, priority=priority, name=name)
 
     with open(LOG_FILE, "a", encoding="utf-8") as file:
-        file.write(json.dumps(new_todo.to_dict(), ensure_ascii=False) + "\n")
+        file.write(json.dumps(new_todo.to_dict()) + "\n")
 
     print("Added to your list!")
 
@@ -193,3 +193,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
