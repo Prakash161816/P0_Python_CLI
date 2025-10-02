@@ -30,9 +30,14 @@ class Todo:
     def __str__(self) -> str:
         """How the Todo looks when printed."""
         if self.done:
-            status = "done"
-            when = f" (finished {self.done_at})" if self.done_at else ""
+            status="done"
+            if self.done_at:
+                when=f"(finished{self.done_at})"
+            else:
+                when=""
         else:
-            status = "open"
-            when = ""
+            status="open"
+            when=""
+        
         return f"id:{self.id}, priority:{self.priority}, task:{self.name}, {status}{when}"
+
